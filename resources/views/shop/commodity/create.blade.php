@@ -2,7 +2,7 @@
 
 @section('content')
     <p class="h4 mb-4 fw-bolder">新增商品</p>
-    <form target="{{ route('shop.commodity.store') }}" method="POST">
+    <form action="{{ route('shop.commodity.store') }}" method="POST">
         @csrf
         <div class="form-floating mb-3">
             <input name="name" type="text" class="form-control" id="name" placeholder="商品名稱" autocomplete="off" required>
