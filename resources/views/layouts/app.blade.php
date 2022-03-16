@@ -23,7 +23,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     @yield("scripts_preload")
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-white">
+    <!-- FB 外掛SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v13.0" nonce="6pGlG5sH"></script>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -88,8 +92,8 @@
         </main>
     </div>
 
-    <footer class="footer mt-auto bg-light w-100">
-        <div class="pt-5">
+    <footer class="footer mt-auto bg-light w-100 border border-2">
+        <div>
             @yield('socialfooter')
 
             <div class="text-center w-100">

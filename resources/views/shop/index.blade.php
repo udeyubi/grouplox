@@ -5,7 +5,7 @@
 
     {{-- FB 讚 SDK --}}
     <div class="w-100 d-flex justify-content-end my-3">
-        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fgroulox.com%2Fshop&width=1000&layout=button_count&action=like&size=small&share=true&height=46&appId" height="25" style="border:none;overflow:hidden;width:105px" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        <div class="fb-like" data-href="https://groulox.com/shop" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
     </div>
 
     <div class="row">
