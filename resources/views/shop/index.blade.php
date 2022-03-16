@@ -13,7 +13,15 @@
             <li class="breadcrumb-item active" aria-current="page">Shop</li>
         </ol>
     </nav>
-    <h1 class="fw-bold text-center mb-2" style="font-family: 'Shadows Into Light', cursive;">BuyGoods</h1>
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <h1 class="fw-bold text-center mb-2" style="font-family: 'Shadows Into Light', cursive;">BuyGoods</h1>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            <cite title="Source Title">商店街</cite>
+        </figcaption>
+    </figure>
+    
 
     {{-- FB 讚 SDK --}}
     <div class="w-100 d-flex justify-content-end my-3">
