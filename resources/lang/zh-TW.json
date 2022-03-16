@@ -6,5 +6,7 @@
     "Remember Me":"記住我",
     "Forgot Your Password?":"忘記密碼?",
     "Name":"名稱",
-    "Confirm Password":"確認密碼"
+    "Confirm Password":"確認密碼",
+    "Reset Password":"重設密碼",
+    "Send Password Reset Link":"寄送重設密碼連結"
 }
