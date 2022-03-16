@@ -1,6 +1,12 @@
 @extends('layouts.app')    
 
 @section('content')
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+        </ol>
+    </nav>
     <h4 class="fw-bold text-center mb-2">BuyGoods商店街</h4>
 
     {{-- FB 讚 SDK --}}
