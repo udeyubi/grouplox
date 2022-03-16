@@ -18,12 +18,16 @@
                 <span class="input-group-text text-danger fw-bold">售價 $ {{ intval($commodity->price) }}</span>
             </div>
             <div class="input-group mb-3 w-25">
-                <select class="form-select">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <button class="btn btn-primary" type="button">加入購物車</button>
+                @auth
+                    <select class="form-select">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <button class="btn btn-primary" type="button">加入購物車</button>
+                @else
+                    <a href="{{route('login')}}" class="btn btn-outline-secondary w-100">登入後購買</a>
+                @endauth
             </div>
         </div>
     </div>

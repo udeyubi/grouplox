@@ -1,4 +1,10 @@
-@extends('layouts.app')    
+@extends('layouts.app')
+
+@section('include')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+@endsection
 
 @section('content')
     <nav aria-label="breadcrumb">
@@ -7,7 +13,7 @@
             <li class="breadcrumb-item active" aria-current="page">Shop</li>
         </ol>
     </nav>
-    <h4 class="fw-bold text-center mb-2">BuyGoods商店街</h4>
+    <h1 class="fw-bold text-center mb-2" style="font-family: 'Shadows Into Light', cursive;">BuyGoods</h1>
 
     {{-- FB 讚 SDK --}}
     <div class="w-100 d-flex justify-content-end my-3">

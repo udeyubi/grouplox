@@ -21,7 +21,7 @@
 
     <!-- BootStrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    @yield("scripts_preload")
+    @yield("include")
 </head>
 <body class="d-flex flex-column min-vh-100 bg-white">
     <!-- FB 外掛SDK -->
