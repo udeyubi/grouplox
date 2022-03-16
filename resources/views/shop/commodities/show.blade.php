@@ -33,7 +33,7 @@
     </div>
         
     <div class="w-100 border border-3 rounded-3">
-        <div class="fb-comments" data-href="https://groulox.com/shop/commodity/{{ $commodity->id }}" data-width="100%" data-numposts="5" data-lazy="true"></div>
+        <div class="fb-comments" data-href="https://groulox.com/shop/commodities/{{ $commodity->id }}" data-width="100%" data-numposts="5" data-lazy="true"></div>
     </div>
 @endsection
 

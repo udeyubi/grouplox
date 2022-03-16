@@ -28,7 +28,7 @@ Route::name('shop.')->prefix('shop')->group(function(){
     Route::get('/dashboard',function(){ return view('shop.dashboard.index'); })->name('dashboard');
 
     // 商品
-    Route::name('commodity.')->prefix('commodity')->group(function(){
+    Route::name('commodities.')->prefix('commodities')->group(function(){
         Route::get('/create',[CommodityController::class,'create'])->name('create');
         Route::post('/create',[CommodityController::class,'store'])->name('store');
         Route::get('/{commodity}',[CommodityController::class,'show'])->name('show');

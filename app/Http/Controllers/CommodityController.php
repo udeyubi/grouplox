@@ -12,11 +12,11 @@ class CommodityController extends Controller
     }
 
     function show(Commodity $commodity){
-        return view('shop.commodity.show',compact('commodity'));
+        return view('shop.commodities.show',compact('commodity'));
     }
 
     function create(){
-        return view('shop.commodity.create');
+        return view('shop.commodities.create');
     }
 
     function store(Request $request){
