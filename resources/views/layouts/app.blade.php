@@ -18,12 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- BootStrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     @yield("scripts_preload")
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div id="app">
-        @yield('FBSDK')
-
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -86,6 +87,16 @@
             </div>
         </main>
     </div>
+
+    <footer class="footer mt-auto bg-light w-100">
+        <div class="pt-5">
+            @yield('socialfooter')
+
+            <div class="text-center w-100">
+                <span class="mt-4 text-muted">© GrouLox 2022</span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 @yield('scripts')

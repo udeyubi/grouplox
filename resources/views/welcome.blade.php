@@ -6,3 +6,7 @@
         <a href="{{ route('shop.dashboard') }}" class="btn btn-outline-dark mx-3"> 商店 - 儀錶板 </a>
     </div>
 @endsection
+
+@section('socialfooter')
+    @include('layouts.footer')
+@endsection
