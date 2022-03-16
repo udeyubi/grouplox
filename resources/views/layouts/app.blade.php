@@ -26,7 +26,7 @@
 <body class="d-flex flex-column min-vh-100 bg-white">
     <!-- FB 外掛SDK -->
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v13.0" nonce="6pGlG5sH"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v13.0&appId=1013649939359845&autoLogAppEvents=1" nonce="kVDyrjox"></script>
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
