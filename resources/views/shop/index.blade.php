@@ -1,12 +1,6 @@
-@extends('layouts.app')
+@extends('shop.layouts')
 
-@section('include')
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-@endsection
-
-@section('content')
+@section('shop_body')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
@@ -44,8 +38,4 @@
             <p class="font-primary"> 目前找不到任何商品... </p>
         @endforelse
     </div>
-@endsection
-
-@section('socialfooter')
-    @include('layouts.footer')
 @endsection
