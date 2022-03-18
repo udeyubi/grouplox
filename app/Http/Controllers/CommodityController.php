@@ -29,4 +29,17 @@ class CommodityController extends Controller
         return redirect( route('shop.dashboard') );
     }
 
+    function edit(Commodity $commodity){
+        return view('shop.commodities.edit',compact('commodity'));
+    }
+
+    function update(Commodity $commodity){
+        $commodity->name = request()->name;
+        $commodity->price = request()->price;
+        $commodity->description = request()->description;
+        $commodity->save();
+
+        return redirect( route('shop.dashboard') );
+    }
+
 }
