@@ -4,11 +4,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <meta property="og:url"           content="https://groulox.com/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="https://static.xx.fbcdn.net/rsrc.php/v3/yb/r/-Hn0KbzDJps.png" />
+    <meta property="og:url"                content="https://groulox.com/shop" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="groulox" />
+    <meta property="og:description"        content="grouloxTest1657" />
+    <meta property="og:image"              content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
 @endsection
 
 @section('content')
