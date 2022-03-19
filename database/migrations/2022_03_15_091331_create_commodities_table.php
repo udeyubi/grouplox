@@ -15,9 +15,10 @@ class CreateCommoditiesTable extends Migration
     {
         Schema::create('commodities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',25);
+            $table->string('introduce',100)->nullable();
             $table->decimal('price');
-            $table->string('description')->nullable();
+            $table->string('description',5000)->nullable();
             $table->timestamps();
         });
     }

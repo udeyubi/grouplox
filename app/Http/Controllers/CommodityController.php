@@ -23,6 +23,7 @@ class CommodityController extends Controller
         Commodity::create([
             'name'=>$request->name,
             'price'=>$request->price,
+            'introduce'=>$request->introduce,
             'description'=>$request->description
         ]);
 
@@ -36,6 +37,7 @@ class CommodityController extends Controller
     function update(Commodity $commodity){
         $commodity->name = request()->name;
         $commodity->price = request()->price;
+        $commodity->introduce = request()->introduce;
         $commodity->description = request()->description;
         $commodity->save();
 
