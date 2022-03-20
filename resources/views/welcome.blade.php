@@ -11,7 +11,7 @@
         <a href="{{ route('shop.dashboard') }}" class="btn btn-outline-dark mx-3"> 商店 - 儀錶板 </a>
     </div>
     <div class="w-100 text-center my-5">
-        <p class="fw-bold text-muted">網站測試中，資料隨時會清空，請勿輸入個人敏感資料</p>
+        <p class="fw-bold text-muted">購物車功能建置中，資料隨時會清空，請勿輸入個人敏感資料</p>
         <span class="fw-bold text-muted">如需登入，可以使用帳號密碼皆為 <pre class="d-inline text-danger">admin@gmail.com</pre> 登入</span>
     </div>
 @endsection
