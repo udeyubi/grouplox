@@ -27,6 +27,9 @@ class ArticleController extends Controller
     }
 
     function store(){
+
+        $this->article_validate();
+
         $article = Article::create([
             'title' => request()->title,
             'content' => request()->content,
@@ -44,6 +47,9 @@ class ArticleController extends Controller
     }
 
     function update(Article $article){
+
+        $this->article_validate();
+
         $article->title = request()->title;
         $article->content = request()->content;
         $article->save();
@@ -65,5 +71,12 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect( route('articles.show',$article->id) );
+    }
+
+    private function article_validate(){
+        request()->validate([
+            'title' => 'required|max:100',
+            'content' => 'required|max:5000',
+        ]);
     }
 }

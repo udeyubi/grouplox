@@ -13,7 +13,7 @@
         <h4 class="fw-bolder"> {{ $article->title }} </h4>
         <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立" }} </p>
         
-        <p>{!! nl2br(htmlentities($article->content)) !!}</p>
+        <p>{!! nl2br($article->content) !!}</p>
         @can('publish-articles', $article)
             <div class="d-flex justify-content-end">
                 <div class="d-flex justify-content-end my-3">
