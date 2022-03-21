@@ -1,5 +1,13 @@
 @extends('articles.layouts')
 
+@section('include')
+    <style>
+        #content p{
+            margin-bottom: 0% !important
+        }
+    </style>
+@endsection
+
 @section('article_body')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -13,7 +21,7 @@
         <h4 class="fw-bolder"> {{ $article->title }} </h4>
         <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立" }} </p>
         
-        <p>{!! nl2br($article->content) !!}</p>
+        <div id="content">{!! $article->content !!}</div>
         @can('publish-articles', $article)
             <div class="d-flex justify-content-end">
                 <div class="d-flex justify-content-end my-3">
