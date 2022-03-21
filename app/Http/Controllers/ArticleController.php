@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
+
+    const ARTICLES_PER_PAGE = 15;
+
     function index(){
         $is_admin = Gate::allows('publish-articles');
-
-        if($is_admin){
-            $articles = Article::latest()->get();
-        }else{
-            $articles = Article::where('deleted',0)->latest()->get();
-        }
+        $deleted_cond = $is_admin ? [0,1] : [0];
+        
+        $articles = Article::whereIn('deleted',$deleted_cond)->latest()->paginate(self::ARTICLES_PER_PAGE);
 
         return view('articles.index',compact('articles'));
     }
