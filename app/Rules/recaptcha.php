@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class recaptcha implements Rule
 {
@@ -37,6 +38,10 @@ class recaptcha implements Rule
             ]
         );
         $body = json_decode((string)$response->getBody());
+
+        
+        Log::info($body->success . ' / ' . $body->challenge_ts . ' / ' . $body->hostname);
+
         return $body->success;
     }
 
