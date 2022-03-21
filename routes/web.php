@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShopController;
@@ -24,19 +26,32 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::name('shop.')->prefix('shop')->group(function(){
-    Route::get('/',[ShopController::class,'index'])->name('index');
+// Route::name('shop.')->prefix('shop')->group(function(){
+//     Route::get('/',[ShopController::class,'index'])->name('index');
 
-    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+//     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
-    // 商品
-    Route::name('commodities.')->prefix('commodities')->group(function(){
-        Route::get('/create',[CommodityController::class,'create'])->name('create');
-        Route::post('/create',[CommodityController::class,'store'])->name('store');
-        Route::get('/{commodity}',[CommodityController::class,'show'])->name('show');
-        Route::get('/{commodity}/edit',[CommodityController::class,'edit'])->name('edit');
-        Route::put('/{commodity}',[CommodityController::class,'update'])->name('update');
-    });
-});
+//     // 商品
+//     Route::name('commodities.')->prefix('commodities')->group(function(){
+//         Route::get('/create',[CommodityController::class,'create'])->name('create');
+//         Route::post('/create',[CommodityController::class,'store'])->name('store');
+//         Route::get('/{commodity}',[CommodityController::class,'show'])->name('show');
+//         Route::get('/{commodity}/edit',[CommodityController::class,'edit'])->name('edit');
+//         Route::put('/{commodity}',[CommodityController::class,'update'])->name('update');
+//     });
 
+//     Route::name('carts.')->prefix('carts')->group(function(){
+//         Route::get('/',[CartController::class,'index'])->name('index');
+//         Route::post('/',[CartController::class,'store'])->name('store');
+//         Route::get('/test',[CartController::class,'test'])->name('test');
+//     });
+// });
 
+Route::get('/articles',[ArticleController::class,'index'])->name('articles.index');
+Route::get('/articles/create',[ArticleController::class,'create'])->name('articles.create');
+Route::post('/articles',[ArticleController::class,'store'])->name('articles.store');
+Route::get('/articles/{article}',[ArticleController::class,'show'])->name('articles.show');
+Route::get('/articles/{article}/edit',[ArticleController::class,'edit'])->name('articles.edit');
+Route::put('/articles/{article}',[ArticleController::class,'update'])->name('articles.update');
+Route::delete('/articles/{article}',[ArticleController::class,'destroy'])->name('articles.destroy');
+Route::put('/articles/{article}/reverse',[ArticleController::class,'reverse'])->name('articles.reverse');
