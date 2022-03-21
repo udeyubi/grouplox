@@ -10,7 +10,7 @@
 
     {{-- FB 讚 SDK --}}
     <div class="w-100 d-flex justify-content-end my-3">
-        <div class="fb-like" data-href="https://groulox.com/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+        <div class="fb-like" data-href="https://groulox.com/articles" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
     </div>
 
     <div class="d-flex justify-content-end my-3">
