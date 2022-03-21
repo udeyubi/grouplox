@@ -24,10 +24,7 @@
         <div class="list-group w-100">
             @forelse ($articles as $article)
                 <a href="{{ route('articles.show',$article->id) }}" class="list-group-item list-group-item-action">
-                    <span>
-                        {{ $article->user->name }} - 
-                    </span>
-                    <span class="text-primary">
+                    <span class="d-inline-block text-truncate text-primary" style="max-width: 80%;">
                         {{$article->title}}
                     </span>
                     @if ( $article->deleted )

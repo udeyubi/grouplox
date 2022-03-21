@@ -5,7 +5,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('articles.index') }}">articles</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $article->title }}</li>
+            <li class="breadcrumb-item active text-truncate" style="max-width: 250px;" aria-current="page">{{ $article->title }}</li>
         </ol>
     </nav>
 
@@ -13,7 +13,7 @@
         <h4 class="fw-bolder"> {{ $article->title }} </h4>
         <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立" }} </p>
         
-        <p>{{ $article->content }}</p>
+        <p>{!! nl2br(htmlentities($article->content)) !!}</p>
         @can('publish-articles', $article)
             <div class="d-flex justify-content-end">
                 <div class="d-flex justify-content-end my-3">
