@@ -30,7 +30,7 @@ class recaptcha implements Rule
         $response = $client->post('https://www.google.com/recaptcha/api/siteverify',
             [
                 'form_params' => [
-                    'secret' => '6LfzoLYeAAAAAEsPnXKlW0mTbgh9pRMa8OCnXiFl',
+                    'secret' => env('RECAPTCHA_Key'),
                     'remoteip' => request()->getClientIp(),
                     'response' => $value
                 ]
