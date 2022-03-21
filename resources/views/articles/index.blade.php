@@ -19,6 +19,9 @@
         @endcan
     </div>
     
+    <div class="my-1 d-flex justify-content-center">
+        {{ $articles->links() }}
+    </div>
 
     <div class="d-flex justify-content-end">
         <div class="list-group w-100">
@@ -36,5 +39,9 @@
                 目前沒有任何文章...
             @endforelse
         </div>
+    </div>
+
+    <div class="my-1 d-flex justify-content-center">
+        {{ $articles->links() }}
     </div>
 @endsection
