@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     function index(){
 
-        $search = request()->s;
+        $search = trim(request()->s);
 
         $is_admin = Gate::allows('publish-articles');
         $deleted_cond = $is_admin ? [0,1] : [0];
@@ -23,7 +23,7 @@ class ArticleController extends Controller
         
         $articles = Article::whereIn('deleted',$deleted_cond);
 
-        if(!is_null($search)){
+        if(!is_null($search) && $search != ''){
             $articles = search($articles,$search);
         }
 
