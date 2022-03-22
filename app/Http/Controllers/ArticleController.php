@@ -14,10 +14,20 @@ class ArticleController extends Controller
     const ARTICLES_PER_PAGE = 15;
 
     function index(){
+
+        $search = request()->s;
+
         $is_admin = Gate::allows('publish-articles');
         $deleted_cond = $is_admin ? [0,1] : [0];
+
         
-        $articles = Article::whereIn('deleted',$deleted_cond)->latest()->paginate(self::ARTICLES_PER_PAGE);
+        $articles = Article::whereIn('deleted',$deleted_cond);
+
+        if(!is_null($search)){
+            $articles = search($articles,$search);
+        }
+
+        $articles = $articles->latest()->paginate(self::ARTICLES_PER_PAGE)->withQueryString();
 
         return view('articles.index',compact('articles'));
     }
@@ -28,7 +38,7 @@ class ArticleController extends Controller
 
     function store(){
 
-        $this->article_validate();
+        article_validate();
 
         $article = Article::create([
             'title' => request()->title,
@@ -48,7 +58,7 @@ class ArticleController extends Controller
 
     function update(Article $article){
 
-        $this->article_validate();
+        article_validate();
 
         $article->title = request()->title;
         $article->content = request()->content;
@@ -73,10 +83,16 @@ class ArticleController extends Controller
         return redirect( route('articles.show',$article->id) );
     }
 
-    private function article_validate(){
-        request()->validate([
-            'title' => 'required|max:100',
-            'content' => 'required|max:5000',
-        ]);
-    }
+    
+}
+
+function article_validate(){
+    request()->validate([
+        'title' => 'required|max:100',
+        'content' => 'required|max:5000',
+    ]);
+}
+
+function search($query,$search){
+    return $query->where('title','LIKE',"%$search%");
 }
