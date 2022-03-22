@@ -10,6 +10,7 @@
     <meta property="og:title"              content="文章" />
     <meta property="og:description"        content="只有文章!" />
     <meta property="og:image"              content="{{ URL::asset('img/c628e0ac318d13760cbb76efa78d56c6.png') }}" />
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 @endsection
 
 @section('content')

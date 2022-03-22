@@ -8,9 +8,11 @@
         </ol>
     </nav>
 
-    {{-- FB 讚 SDK --}}
     <div class="w-100 d-flex justify-content-end my-3">
+        {{-- FB 讚 SDK --}}
         <div class="fb-like" data-href="https://groulox.com/articles" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+        {{-- line 分享外嵌 --}}
+        <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="https://groulox.com/articles" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
     </div>
 
     <form action="{{ route('articles.index') }}" method="GET">
@@ -19,7 +21,6 @@
             @if ( !is_null(Request::get('s')) )
                 <a class="btn-close position-absolute top-50 end-0 translate-middle" href="{{ route('articles.index') }}" title="清除搜尋"></a>
             @endif
-            {{-- <button class="btn btn-outline-secondary" type="submit">搜尋</button> --}}
         </div>
     </form>
 
