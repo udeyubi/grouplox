@@ -13,7 +13,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->address(100),
+            'title' => $this->faker->realTextBetween(10,100),
             'content' => $this->faker->text(600),
             'user_id' => 1
         ];

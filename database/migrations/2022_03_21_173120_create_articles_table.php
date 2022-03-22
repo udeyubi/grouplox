@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title',100);
-            $table->string('content',5000);
+            $table->text('content',65535);
             $table->boolean('deleted')->default(0);
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
