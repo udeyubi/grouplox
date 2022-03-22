@@ -16,7 +16,10 @@
     <form action="{{ route('articles.index') }}" method="GET">
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="找點什麼嗎?" name="s" value="{{ Request::get('s') }}">
-            <button class="btn btn-outline-secondary" type="submit">搜尋</button>
+            @if ( !is_null(Request::get('s')) )
+                <a class="btn-close position-absolute top-50 end-0 translate-middle" href="{{ route('articles.index') }}" title="清除搜尋"></a>
+            @endif
+            {{-- <button class="btn btn-outline-secondary" type="submit">搜尋</button> --}}
         </div>
     </form>
 
