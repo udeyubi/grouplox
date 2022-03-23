@@ -48,4 +48,10 @@
     <div class="w-100 border border-3 rounded-3">
         <div class="fb-comments" data-href="https://groulox.com/articles/{{ $article->id }}" data-width="100%" data-numposts="5" data-lazy="true"></div>
     </div>
+
+    <div class="position-fixed bottom-0 end-0 mx-4 my-5 align-middle">
+        <a href="{{ route('articles.index') }}" class="btn btn-outline-dark rounded-circle" style="width:50px;height:50px;" title="回文章列表">
+            <i class="bi bi-card-text" style="font-size: 1.5rem"></i>
+        </a>
+    </div>
 @endsection
