@@ -15,7 +15,8 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->realTextBetween(10,100),
             'content' => $this->faker->text(600),
-            'user_id' => 1
+            'user_id' => 1,
+            'category_id' => 3,
         ];
     }
 }
