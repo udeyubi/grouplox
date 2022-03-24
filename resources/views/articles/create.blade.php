@@ -12,9 +12,18 @@
         @error('title')
             <span class="text-danger fw-bolder">{{ $message }}</span>
         @enderror
-        <div class="form-floating mb-3">
-            <input name="title" type="text" class="form-control" id="title" placeholder="標題" maxlength="100" autocomplete="off" value="{{ old('title') }}">
-            <label for="title">標題</label>
+        @error('category_id')
+            <span class="text-danger fw-bolder">{{ $message }}</span>
+        @enderror
+        <div class="input-group mb-3">
+            <input name="title" type="text" class="form-control w-75" id="title" placeholder="標題" maxlength="100" autocomplete="off" value="{{ old('title') }}">
+
+            <select class="form-select" name="category_id">
+                <option value="" selected>請選擇分類</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
         </div>
 
         @error('content')

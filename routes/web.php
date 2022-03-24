@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShopController;
@@ -55,3 +56,5 @@ Route::get('/articles/{article}/edit',[ArticleController::class,'edit'])->name('
 Route::put('/articles/{article}',[ArticleController::class,'update'])->name('articles.update');
 Route::delete('/articles/{article}',[ArticleController::class,'destroy'])->name('articles.destroy');
 Route::put('/articles/{article}/reverse',[ArticleController::class,'reverse'])->name('articles.reverse');
+
+Route::resource('/categories',CategoryController::class);

@@ -1,6 +1,11 @@
 @extends('articles.layouts')
 
-@section('include')
+@section('article_include')
+
+    <meta property="og:url"                content="{{ route('articles.show',$article->id) }}" />
+    <meta property="og:title"              content="{{ $article->title }}" />
+    <meta property="og:description"        content="{{ $article->content }}" />
+
     <style>
         #content p{
             margin-bottom: 0% !important
@@ -17,11 +22,19 @@
         </ol>
     </nav>
 
-    <div class="w-100 mb-5">
+    <div class="w-100 mb-5 border-bottom border-5">
         <h4 class="fw-bolder"> {{ $article->title }} </h4>
-        <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立" }} </p>
+        <div class="d-flex justify-content-between">
+            <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立於 " . $article->category->name }} </p>
+            <div class="d-flex ">
+                {{-- FB 讚 SDK --}}
+                <div class="fb-like" data-href="https://groulox.com/articles" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                {{-- line 分享外嵌 --}}
+                <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="https://groulox.com/articles" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+            </div>
+        </div>
         
-        <div id="content">{!! $article->content !!}</div>
+        <div id="content" class="text-break mb-3">{!! $article->content !!}</div>
         @can('publish-articles', $article)
             <div class="d-flex justify-content-end">
                 <div class="d-flex justify-content-end my-3">

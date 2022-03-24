@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ class ArticleController extends Controller
     function index(){
 
         $search = trim(request()->s);
+        $search_category_id = trim(request()->c);
 
         $is_admin = Gate::allows('publish-articles');
         $deleted_cond = $is_admin ? [0,1] : [0];
@@ -23,8 +25,12 @@ class ArticleController extends Controller
         
         $articles = Article::whereIn('deleted',$deleted_cond);
 
-        if(!is_null($search) && $search != ''){
+        if(hasSet($search)){
             $articles = search($articles,$search);
+        }
+
+        if(hasSet($search_category_id)){
+            $articles = $articles->where('category_id',$search_category_id);
         }
 
         $articles = $articles->latest()->paginate(self::ARTICLES_PER_PAGE)->withQueryString();
@@ -43,7 +49,8 @@ class ArticleController extends Controller
         $article = Article::create([
             'title' => request()->title,
             'content' => request()->content,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'category_id' => request()->category_id,
         ]);
         return redirect( route('articles.show',$article->id) );
     }
@@ -90,9 +97,14 @@ function article_validate(){
     request()->validate([
         'title' => 'required|max:100',
         'content' => 'required|max:5000',
+        'category_id' => 'required|exists:categories,id'
     ]);
 }
 
 function search($query,$search){
     return $query->where('title','LIKE',"%$search%");
+}
+
+function hasSet($value){
+    return (!is_null($value) && $value != '');
 }
