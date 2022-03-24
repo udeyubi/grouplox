@@ -4,7 +4,7 @@
 
     <meta property="og:url"                content="{{ route('articles.show',$article->id) }}" />
     <meta property="og:title"              content="{{ $article->title }}" />
-    <meta property="og:description"        content="{{ $article->content }}" />
+    <meta property="og:description"        content="{{ strip_tags($article->content) }}" />
 
     <style>
         #content p{

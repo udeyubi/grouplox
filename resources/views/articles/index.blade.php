@@ -85,11 +85,11 @@
                     <div class="d-flex w-100 justify-content-between">
                         <div>
                             <span class="badge bg-secondary rounded-pill">{{ $article->category->name }}</span>
-                            <h5 class="mb-1 d-inline">{{$article->title}}</h5>
+                            <p class="mb-1 d-inline fw-bold">{{$article->title}}</p>
                         </div>    
                         <small>{{ $article->created_at->diffForHumans() }}</small>
                     </div>
-                    <p class="mb-1 text-truncate" style="max-width: 80%;">{{strip_tags($article->content)}}</p>
+                    <p class="my-1 text-truncate text-black-50" style="max-width: 80%;">{{strip_tags($article->content)}}</p>
                     <small>這邊用來放TAG</small>
 
                     @if ( $article->deleted )
