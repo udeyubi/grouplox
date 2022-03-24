@@ -28,9 +28,9 @@
             <p class="text-muted"> {{ $article->user->name . " 於 " . $article->created_at ." 建立於 " . $article->category->name }} </p>
             <div class="d-flex ">
                 {{-- FB 讚 SDK --}}
-                <div class="fb-like" data-href="https://groulox.com/articles" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                <div class="fb-like" data-href="{{ route('articles.show',$article->id) }}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
                 {{-- line 分享外嵌 --}}
-                <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="https://groulox.com/articles" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+                <div class="line-it-button" data-lang="zh_Hant" data-type="share-a" data-env="REAL" data-url="{{ route('articles.show',$article->id) }}" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
             </div>
         </div>
         
