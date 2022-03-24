@@ -104,6 +104,6 @@
     </div>
 
     <div class="my-1 d-flex justify-content-center">
-        {{ $articles->links() }}
+        {{ $articles->withQueryString()->links() }}
     </div>
 @endsection

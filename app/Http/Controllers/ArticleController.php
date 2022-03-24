@@ -69,6 +69,7 @@ class ArticleController extends Controller
 
         $article->title = request()->title;
         $article->content = request()->content;
+        $article->category_id = request()->category_id;
         $article->save();
 
         return redirect( route('articles.show',$article->id) );
