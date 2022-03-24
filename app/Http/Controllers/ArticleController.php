@@ -96,7 +96,7 @@ class ArticleController extends Controller
 function article_validate(){
     request()->validate([
         'title' => 'required|max:100',
-        'content' => 'required|max:5000',
+        'content' => 'required|max:65535',
         'category_id' => 'required|exists:categories,id'
     ]);
 }
