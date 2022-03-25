@@ -52,6 +52,9 @@ class ArticleController extends Controller
             'user_id' => Auth::user()->id,
             'category_id' => request()->category_id,
         ]);
+
+        setFlashMsg('文章已成功建立');
+
         return redirect( route('articles.show',$article->id) );
     }
 
@@ -72,6 +75,8 @@ class ArticleController extends Controller
         $article->category_id = request()->category_id;
         $article->save();
 
+        setFlashMsg('文章已修改');
+
         return redirect( route('articles.show',$article->id) );
     }
 
@@ -80,6 +85,7 @@ class ArticleController extends Controller
         $article->deleted_at = Carbon::now();
         $article->save();
 
+        setFlashMsg('文章已刪除');
         return redirect( route('articles.index') );
     }
 
@@ -88,6 +94,7 @@ class ArticleController extends Controller
         $article->deleted_at = null;
         $article->save();
 
+        setFlashMsg('文章已回復');
         return redirect( route('articles.show',$article->id) );
     }
 
@@ -108,4 +115,8 @@ function search($query,$search){
 
 function hasSet($value){
     return (!is_null($value) && $value != '');
+}
+
+function setFlashMsg($msg){
+    request()->session()->flash('successMsg',$msg);
 }
