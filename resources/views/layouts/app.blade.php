@@ -88,7 +88,8 @@
         <main class="py-4">
             <div class="container">
                 @if(Session::has('successMsg'))
-                    <layout-successmsg-component success-msg="{{  Session::get('successMsg') }}"></layout-successmsg-component>
+                    <notification success-msg="{{  Session::get('successMsg') }}">
+                    </notification>
                 @endif
                 @yield('content')
             </div>
