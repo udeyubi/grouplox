@@ -7,6 +7,7 @@ use App\Models\Category;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
@@ -16,14 +17,18 @@ class ArticleController extends Controller
 
     function index(){
 
+        // DB::enableQueryLog();
         $search = trim(request()->s);
         $search_category_id = trim(request()->c);
 
         $is_admin = Gate::allows('publish-articles');
-        $deleted_cond = $is_admin ? [0,1] : [0];
 
-        
-        $articles = Article::whereIn('deleted',$deleted_cond);
+
+        $articles = Article::whereRaw('1=1');
+
+        if(!$is_admin){
+            $articles = $articles->where('deleted',0);
+        }
 
         if(hasSet($search)){
             $articles = search($articles,$search);
@@ -33,7 +38,9 @@ class ArticleController extends Controller
             $articles = $articles->where('category_id',$search_category_id);
         }
 
-        $articles = $articles->latest()->paginate(self::ARTICLES_PER_PAGE)->withQueryString();
+        $articles = $articles->latest('id')->paginate(self::ARTICLES_PER_PAGE)->withQueryString();
+
+        // dump(DB::getQueryLog());
 
         return view('articles.index',compact('articles'));
     }
