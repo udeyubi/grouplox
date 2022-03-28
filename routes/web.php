@@ -6,9 +6,14 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShopController;
+// use App\Mail\WelcomeMail;
 use App\Models\Commodity;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +63,34 @@ Route::delete('/articles/{article}',[ArticleController::class,'destroy'])->name(
 Route::put('/articles/{article}/reverse',[ArticleController::class,'reverse'])->name('articles.reverse');
 
 Route::resource('/categories',CategoryController::class);
+
+// Route::get('/emails', function(){
+//     Mail::to('admin@gmail.com')->send(new WelcomeMail);
+//     return new WelcomeMail ;
+// } );
+
+// Route::get('/google/auth', [SocialiteController::class,'redirectToProvider']);
+// Route::get('/google/auth/callback', [SocialiteController::class,'handleProviderCallback']);
+
+Route::get('/google/auth', function () {
+    return Socialite::driver('google')->redirect();
+})->name('google.auth');
+ 
+Route::get('/google/auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+
+    dd($user);
+ 
+    $user = User::firstOrCreate([
+        'email' => $user->email
+    ],[
+        'name' => $user->name,
+        'password' => '123',
+        'email' => $user->email,
+    ]);
+
+    Auth::login($user,true);
+    // $user->token
+
+    return redirect( route('index'));
+});
