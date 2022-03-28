@@ -74,4 +74,4 @@ Route::resource('/categories',CategoryController::class);
 
 Route::get('/google/auth', [SocialiteController::class,'redirectToProvider'])->name('google.auth');
  
-Route::get('/google/auth/callback', [SocialiteController::class,'handleProviderCallback']);
+Route::get('/google/auth/callback', [SocialiteController::class,'handleProviderCallback'])->middleware('auth');
