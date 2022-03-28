@@ -6,13 +6,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\SocialiteController;
 // use App\Mail\WelcomeMail;
 use App\Models\Commodity;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 
 /*
@@ -72,25 +72,6 @@ Route::resource('/categories',CategoryController::class);
 // Route::get('/google/auth', [SocialiteController::class,'redirectToProvider']);
 // Route::get('/google/auth/callback', [SocialiteController::class,'handleProviderCallback']);
 
-Route::get('/google/auth', function () {
-    return Socialite::driver('google')->redirect();
-})->name('google.auth');
+Route::get('/google/auth', [SocialiteController::class,'redirectToProvider'])->name('google.auth');
  
-Route::get('/google/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-
-    dd($user);
- 
-    $user = User::firstOrCreate([
-        'email' => $user->email
-    ],[
-        'name' => $user->name,
-        'password' => '123',
-        'email' => $user->email,
-    ]);
-
-    Auth::login($user,true);
-    // $user->token
-
-    return redirect( route('index'));
-});
+Route::get('/google/auth/callback', [SocialiteController::class,'handleProviderCallback']);
