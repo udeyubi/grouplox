@@ -85,6 +85,7 @@
 
                     <div class="text-center border-top p-3 w-50">
                         <p class="fw-bolder border-bottom border-3 h5">以其他方式登入</p>
+                        <small class="fw-bold text-danger">*目前僅限開發人員登入*</small>
                         <div class="d-flex w-100 flex-column align-items-center">
                             <a href="{{ route('google.auth') }}" class="btn btn-outline-dark w-50 my-2"> 
                                 <i class="bi bi-google me-3"></i>GOOGLE
