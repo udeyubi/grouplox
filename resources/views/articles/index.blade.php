@@ -15,11 +15,16 @@
     </nav>
 
     <div class="w-100 d-flex justify-content-between align-items-center my-3">
+        {{-- 選單按鈕 --}}
         <div>
-            {{-- 選單按鈕 --}}
             <a class="btn border-start border-5" style="outline:none;box-shadow:none;" tabindex="-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                 <i class="bi bi-journal mx-1" style="color: black"></i>分類
             </a>
+            @isset( $current_category->name )
+                <div class="text-center d-inline border-start border-3 border-success ps-2">
+                    {{ $current_category->name }}
+                </div>
+            @endisset
 
             <div class="offcanvas offcanvas-start" style="width:15%;min-width:229px" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header border border-1 border-bottom">
@@ -28,14 +33,15 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="list-group">
+                        <a href="{{ route('articles.index') }}" class="list-group-item list-group-item-action border-0 @if(is_null(Request::get('c'))) active @endif"> 
+                            全部
+                        </a>
                         @isset($categories)
-                            @forelse ($categories as $category)
-                                <a href="{{ route('articles.index',['c'=>$category->id]) }}" class="list-group-item list-group-item-action border-0"> 
+                            @foreach ($categories as $category)
+                                <a href="{{ route('articles.index',['c'=>$category->id]) }}" class="list-group-item list-group-item-action border-0 @if(Request::get('c') == $category->id) active @endif"> 
                                     {{$category->name}} 
                                 </a>
-                            @empty
-                                目前沒有分類..
-                            @endforelse
+                            @endforeach
                         @endisset
                     </div>
                 </div>
