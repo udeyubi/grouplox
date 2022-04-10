@@ -7,6 +7,7 @@ use App\Http\Controllers\CommodityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\URLShortController;
 // use App\Mail\WelcomeMail;
 use App\Models\Commodity;
 use App\Models\User;
@@ -63,6 +64,10 @@ Route::delete('/articles/{article}',[ArticleController::class,'destroy'])->name(
 Route::put('/articles/{article}/reverse',[ArticleController::class,'reverse'])->name('articles.reverse');
 
 Route::resource('/categories',CategoryController::class);
+
+Route::get('/urlshorts',[URLShortController::class,'index'])->name('urlshorts.index');
+
+Route::post('/urlshorts',[URLShortController::class,'store'])->name('urlshorts.store');
 
 // Route::get('/emails', function(){
 //     Mail::to('admin@gmail.com')->send(new WelcomeMail);

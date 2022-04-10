@@ -11,6 +11,7 @@
         <a href="{{ route('shop.dashboard') }}" class="btn btn-outline-dark mx-3"> 商店 - 儀錶板 </a> --}}
         <a href="{{ route('articles.index') }}" class="btn btn-outline-dark mx-3"> 文章 </a>
         <a href="{{ route('categories.index') }}" class="btn btn-outline-dark mx-3"> 分類 </a>
+        <a href="{{ route('urlshorts.index') }}" class="btn btn-outline-dark mx-3"> 縮網址 </a>
     </div>
     <div class="w-100 text-center my-5">
         <p class="fw-bold text-muted">網站尚有功能建置中，資料隨時會清空，請勿輸入個人敏感資料</p>
