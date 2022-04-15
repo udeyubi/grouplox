@@ -76,17 +76,18 @@ class URLShortController extends Controller
         if(empty($url_history)){
             $url_history = [$id];
         }else{
-            Log::info( $url_history );
+            // Log::info( $url_history );
             $url_history = json_decode($url_history,TRUE);
             if(Arr::first($url_history) != $id){
                 $url_history = Arr::prepend($url_history,$id);
                 $url_history = array_unique($url_history);
             }
+            // Log::info( $url_history );
         }
-        $url_history = json_encode($url_history);
+        $url_history = json_encode(array_values($url_history));
         Cookie::queue('url_history', $url_history);
 
-        Log::info( $url_history );
+        // Log::info( $url_history );
 
         return $response;
     }
