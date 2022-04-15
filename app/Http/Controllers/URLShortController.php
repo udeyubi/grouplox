@@ -69,11 +69,13 @@ class URLShortController extends Controller
         $request = $client->post('https://glxs.de/api/urlshorts',['form_params' => ['url'=>$url]]);
         $response = $request->getBody()->getContents();
         
-        if( json_decode($response)->error ){
+        $tmp_response = json_decode($response);
+
+        if(property_exists( $tmp_response , 'error' )){
             return $response;
         }
 
-        $id = json_decode($response)->success->id;
+        $id = $tmp_response->success->id;
 
         $url_history = Cookie::get('url_history');
 
