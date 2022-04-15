@@ -59,8 +59,8 @@
                     <h2>使用紀錄</h2>
                     <ul class="list-group" style="max-height:202px;overflow-y:auto">
                         <li class="list-group-item" href="#" v-for="(url_history,index) in url_histories" :key="index">
-                            <div class="d-inline-block text-truncate h-25" style="max-width: 550px;">
-                                <span class="text-primary fw-bold d-inline-block" style="min-width: 115px;"> {{url_history.id}} </span>
+                            <div class="d-inline-block text-truncate" style="max-width: 550px;">
+                                <span class="text-primary fw-bold d-inline-block" style="min-width: 80px;"> {{url_history.id}} </span>
                                 <span class="text-secondary"> {{url_history.url}} </span>
                             </div>
                             <a href="#" class="btn float-end btn-primary" @click="copyURL(url_history.id)">
