@@ -66,6 +66,10 @@ class ArticleController extends Controller
     }
 
     function show(Article $article){
+        $is_admin = Gate::allows('publish-articles');
+        if(!$is_admin && $article->deleted == 1){
+            abort(404);
+        }
         return view('articles.show',compact('article'));
     }
 
